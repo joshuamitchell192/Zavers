@@ -11,15 +11,40 @@ class TransactionsPage extends StatefulWidget {
 
 class _TransactionsPageState extends State<TransactionsPage> {
 
-  Container transactionTile() {
+  Container transactionTile(String title, double value) {
+
+    IconData symbol;
+    Color transactionColour;
+    if (value >= 0) {
+      symbol = Icons.add;
+      transactionColour = Colors.red[400];
+    } else {
+      symbol = Icons.remove;
+      transactionColour = Colors.green[400];
+    }
     return Container(
+
+      margin: const EdgeInsets.all(20),
       child: Row (
         children: <Widget>[
-          Text("Transaction 1")
+          Expanded(
+            child: Text(title),
+          ),
+
+          Container(
+            child: new Icon(symbol, color: transactionColour, size: 16,),
+          ),
+
+          Container(
+            child: Text(value.abs().toStringAsFixed(2)),
+
+          )
         ],
       ),
     );
   }
+
+
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,13 +55,30 @@ class _TransactionsPageState extends State<TransactionsPage> {
         ),
       ),
 
-      body: Center(
-        child: ListView(
-          children: <Widget>[
-
-          ],
-        ),
-      )
+      body: ListView(
+        children: <Widget>[
+          transactionTile("Transaction 1", 10.5),
+          transactionTile("Transaction 2", -5.78),
+          transactionTile("Transaction 1", 10.5),
+          transactionTile("Transaction 2", -5.78),
+          transactionTile("Transaction 1", 10.5),
+          transactionTile("Transaction 2", -5.7456348),
+          transactionTile("Transaction 1", 10.5),
+          transactionTile("Transaction 2", -5.78),
+          transactionTile("Transaction 1", 10.5),
+          transactionTile("Transaction 2", -5.78),
+          transactionTile("Transaction 1", 10.5),
+          transactionTile("Transaction 2", -5.78),
+          transactionTile("Transaction 1", 10.9875),
+          transactionTile("Transaction 2", -5.78),
+          transactionTile("Transaction 1", 10.5),
+          transactionTile("Transaction 2", -5.78),
+          transactionTile("Transaction 1", 10.5),
+          transactionTile("Transaction 2", -5.78),
+          transactionTile("Transaction 1", 10.5),
+          transactionTile("Transaction 2", -5.78),
+        ],
+      ),
     );
   }
 }
