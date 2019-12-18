@@ -22,24 +22,12 @@ class Index extends StatefulWidget {
 }
 
 class _IndexState extends State<Index> {
-  int _counter = 0;
   int _selectedIndex = 0;
   final List<Widget> _pages = [
     HomePage(),
     PlaceholderWidget(Colors.amber[800], "Transactions"),
     PlaceholderWidget(Colors.deepPurple, "Savings"),
-  ]; 
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  ];
 
   void onBottomNavBarTapped(int index) {
     setState(() {
@@ -61,23 +49,12 @@ class _IndexState extends State<Index> {
     Color iconColor = Theme.of(context).primaryColor;
 
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
 
       body: Container(
         alignment: Alignment.center,
         child: _pages[_selectedIndex],
       ),
       
-
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
       
       bottomNavigationBar: BottomNavigationBar(
 

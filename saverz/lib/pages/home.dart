@@ -1,9 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  HomePage({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  _HomePageState createState() => _HomePageState();
+
+}
+
+class _HomePageState extends State<HomePage> {
+
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
   Widget build(BuildContext context) {
-    return Column(
+    return Scaffold(
+
+      appBar: AppBar(
+        title: Text(
+          "Home",
+          style: TextStyle(
+            fontSize: 20,
+          ),
+        ),
+      ),
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
       // Column is also a layout widget. It takes a list of children and
       // arranges them vertically. By default, it sizes itself to fit its
       // children horizontally, and tries to be as tall as its parent.
@@ -18,17 +52,25 @@ class HomePage extends StatelessWidget {
       // center the children vertically; the main axis here is the vertical
       // axis because Columns are vertical (the cross axis would be
       // horizontal).
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Text(
-          'You have pushed the button this many times:',
-        ), 
-        Text(
-          '1',
-          style: Theme.of(context).textTheme.display1,
+      body: Center(
+        
+        child: Column(
+
+          children: <Widget>[
+
+            
+
+            Text(
+              'You have pushed the button this many times:',
+            ), 
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.display1,
+            ),
+          
+          ],
         ),
-      
-      ],
+      )
     );
   }
 }
