@@ -57,6 +57,7 @@ class _TransactionsPageState extends State<TransactionsPage> {
 
       body: ListView(
         children: <Widget>[
+          // TODO - Clean up this mess
           transactionTile("Burrito Sent me Money", 10.5),
           Divider(),
           transactionTile("Sending Money to Burrito", -5.78),
