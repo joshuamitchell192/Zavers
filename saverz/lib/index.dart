@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:saverz/pages/home.dart';
 import 'package:saverz/pages/placeholder.dart';
+import 'package:saverz/pages/transactions.dart';
 
 class Index extends StatefulWidget {
   Index({Key key, this.title}) : super(key: key);
@@ -25,8 +26,10 @@ class _IndexState extends State<Index> {
   int _selectedIndex = 0;
   final List<Widget> _pages = [
     HomePage(),
-    PlaceholderWidget(Colors.amber[800], "Transactions"),
+    TransactionsPage(),
     PlaceholderWidget(Colors.deepPurple, "Savings"),
+    PlaceholderWidget(Colors.amber[800], "Transactions"),
+
   ];
 
   void onBottomNavBarTapped(int index) {
