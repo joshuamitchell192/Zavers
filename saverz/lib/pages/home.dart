@@ -14,6 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   int _counter = 0;
+  double _balance = 12000.0;
 
   void _incrementCounter() {
     setState(() {
@@ -57,6 +58,15 @@ class _HomePageState extends State<HomePage> {
         child: Column(
 
           children: <Widget>[
+            Container (
+              margin: const EdgeInsets.symmetric(vertical: 50),
+              child: Text(
+                "Balance: \$$_balance",
+                style: TextStyle(
+                  fontSize: 32,
+                ),
+              ),
+            ),
 
             
 
@@ -67,8 +77,8 @@ class _HomePageState extends State<HomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
-          
           ],
+
         ),
       )
     );
